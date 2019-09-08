@@ -1,7 +1,7 @@
 {
   "name": "micro_server",
   "version": "0.1.0",
-  "description": "Node.js, Express.js, TypeScript Application",
+  "description": "Node.js, Express.js, TypeScript Application and REST API",
   "repository": {
     "type": "git",
     "url": "https://github.com/MuhammadShamim/Micro_Server"
@@ -27,6 +27,7 @@
     "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "dependencies": {
+    "@types/nodemailer-mailgun-transport": "^1.4.1",
     "async": "^3.0.1",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.5",
@@ -42,6 +43,7 @@
     "lodash": "^4.17.13",
     "lusca": "^1.6.1",
     "nodemailer": "^6.2.1",
+    "nodemailer-mailgun-transport": "^1.4.0",
     "pug": "^2.0.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",

@@ -10,6 +10,7 @@ import { SESSION_SECRET } from "./util/secrets";
 
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
+import * as contactController from "./controllers/contact";
 
 // Create Express server
 const app = express();
@@ -41,5 +42,7 @@ app.use(
  * Primary app routes.
  */
 app.get("/", homeController.index);
+app.get("/contact", contactController.getContact);
+app.post("/contact", contactController.postContact);
 
 export default app;

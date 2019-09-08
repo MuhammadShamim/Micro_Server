@@ -18,3 +18,16 @@ if (!SESSION_SECRET) {
     logger.error("No client secret. Set SESSION_SECRET environment variable.");
     process.exit(1);
 }
+
+export const MAILGUN_DOMAIN = process.env["MAILGUN_DOMAIN"];
+export const MAILGUN_APIKEY = process.env["MAILGUN_APIKEY"];
+
+if (!MAILGUN_DOMAIN) {
+    logger.error("No Mailgun Domain. Set MAILGUN_DOMAIN environment variable.");
+    process.exit(1);
+}
+
+if (!MAILGUN_APIKEY) {
+    logger.error("No Mailgun API Key. Set MAILGUN_APIKEY environment variable.");
+    process.exit(1);
+}

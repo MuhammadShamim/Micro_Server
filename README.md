@@ -1,8 +1,8 @@
-# TypeScript Node Starter
+# Micro Server
 
 [![Dependency Status](https://david-dm.org/Microsoft/TypeScript-Node-Starter.svg)](https://david-dm.org/Microsoft/TypeScript-Node-Starter) [![Build Status](https://travis-ci.org/Microsoft/TypeScript-Node-Starter.svg?branch=master)](https://travis-ci.org/Microsoft/TypeScript-Node-Starter)
 
-**Live Demo**: [https://typescript-node-starter.azurewebsites.net/](https://typescript-node-starter.azurewebsites.net/)
+<!-- **Live Demo**: [https://typescript-node-starter.azurewebsites.net/](https://typescript-node-starter.azurewebsites.net/) -->
 
 ![image](https://user-images.githubusercontent.com/820883/36764267-abbdb7f8-1be0-11e8-9678-2a9ea448d7f8.png)
 
@@ -197,7 +197,7 @@ The full folder structure of this app is explained below:
 | **src**/server.ts        | Entry point to your express app                                                               |
 | **test**                 | Contains your tests. Separate from source because there is a different build process.         |
 | **views**                | Views define how your app renders on the client. In this case we're using pug                 |
-| .env.example             | API keys, tokens, passwords, database URI. Clone this, but don't check it in to public repos. |
+| .env                     | API keys, tokens, passwords, database URI. Clone this, but don't check it in to public repos. |
 | .travis.yml              | Used to configure Travis CI build                                                             |
 | .copyStaticAssets.ts     | Build script that copies images, fonts, and JS libs to the dist folder                        |
 | jest.config.js           | Used to configure Jest running tests written in TypeScript                                    |
@@ -273,21 +273,21 @@ Below is a list of all the scripts this template has available:
 | Npm Script | Description |
 | ------------------------- | ------------------------------------------------------------------------------------------------- |
 | `start`                   | Does the same as 'npm run serve'. Can be invoked with `npm start`                                 |
-| `build`                   | Full build. Runs ALL build tasks (`build-sass`, `build-ts`, `lint`, `copy-static-assets`)       |
+| `build`                   | Full build. Runs ALL build tasks (`build-sass`, `build-ts`, `lint`, `copy-static-assets`)         |
 | `serve`                   | Runs node on `dist/server.js` which is the apps entry point                                       |
 | `watch-node`              | Runs node with nodemon so the process restarts if it crashes. Used in the main watch task         |
 | `watch`                   | Runs all watch tasks (TypeScript, Sass, Node). Use this if you're not touching static assets.     |
 | `test`                    | Runs tests using Jest test runner                                                                 |
 | `watch-test`              | Runs tests in watch mode                                                                          |
-| `build-ts`                | Compiles all source `.ts` files to `.js` files in the `dist` folder                                 |
-| `watch-ts`                | Same as `build-ts` but continuously watches `.ts` files and re-compiles when needed                |
-| `build-sass`              | Compiles all `.scss` files to `.css` files                                                          |
-| `watch-sass`              | Same as `build-sass` but continuously watches `.scss` files and re-compiles when needed            |
-| `lint`                    | Runs ESLint on project files                                                                       |
+| `build-ts`                | Compiles all source `.ts` files to `.js` files in the `dist` folder                               |
+| `watch-ts`                | Same as `build-ts` but continuously watches `.ts` files and re-compiles when needed               |
+| `build-sass`              | Compiles all `.scss` files to `.css` files                                                        |
+| `watch-sass`              | Same as `build-sass` but continuously watches `.scss` files and re-compiles when needed           |
+| `lint`                    | Runs ESLint on project files                                                                      |
 | `copy-static-assets`      | Calls script that copies JS libs, fonts, and images to dist directory                             |
 | `debug`                   | Performs a full build and then serves the app in watch mode                                       |
-| `serve-debug`             | Runs the app with the --inspect flag                                                               |
-| `watch-debug`             | The same as `watch` but includes the --inspect flag so you can attach a debugger                   |
+| `serve-debug`             | Runs the app with the --inspect flag                                                              |
+| `watch-debug`             | The same as `watch` but includes the --inspect flag so you can attach a debugger                  |
 
 ## Type Definition (`.d.ts`) Files
 TypeScript uses `.d.ts` files to provide types for JavaScript libraries that were not written in TypeScript.
@@ -490,8 +490,6 @@ To enhance your development experience while working in VSCode we also provide y
 
 - [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
-- [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-- [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 
 # Dependencies
 Dependencies are managed through `package.json`.
@@ -501,30 +499,27 @@ In that file you'll find two sections:
 
 | Package                         | Description                                                           |
 | ------------------------------- | --------------------------------------------------------------------- |
-| async                           | Utility library that provides asynchronous control flow.               |
+| async                           | Utility library that provides asynchronous control flow.              |
 | bcrypt-nodejs                   | Library for hashing and salting user passwords.                       |
 | bluebird                        | Promise library                                                       |
 | body-parser                     | Express 4 middleware.                                                 |
 | compression                     | Express 4 middleware.                                                 |
 | connect-mongo                   | MongoDB session store for Express.                                    |
-| dotenv                          | Loads environment variables from .env file.                            |
+| dotenv                          | Loads environment variables from .env file.                           |
 | errorhandler                    | Express 4 middleware.                                                 |
 | express                         | Node.js web framework.                                                |
-| express-flash                    | Provides flash messages for Express.                                   |
+| express-flash                    | Provides flash messages for Express.                                 |
 | express-session                 | Express 4 middleware.                                                 |
 | express-validator               | Easy form validation for Express.                                     |
 | fbgraph                         | Facebook Graph API library.                                           |
 | lodash                          | General utility library.                                              |
 | lusca                           | CSRF middleware.                                                      |
-| mongoose                        | MongoDB ODM.                                                          |
 | nodemailer                      | Node.js library for sending emails.                                   |
-| passport                        | Simple and elegant authentication library for node.js                 |
-| passport-facebook               | Sign-in with Facebook plugin.                                         |
-| passport-local                  | Sign-in with Username and Password plugin.                            |
 | pug (jade)                      | Template engine for Express.                                          |
-| request                         | Simplified HTTP request library.                                       |
-| request-promise                 | Promisified HTTP request library. Let's us use async/await             |
+| request                         | Simplified HTTP request library.                                      |
+| request-promise                 | Promisified HTTP request library. Let's us use async/await            |
 | winston                         | Logging library                                                       |
+| aws-sdk                         | AWS SDK for JavaScript in Node.js                                                     |
 
 ## `devDependencies`
 
