@@ -13,21 +13,31 @@ export const ENVIRONMENT = process.env.NODE_ENV;
 const prod = ENVIRONMENT === "production"; // Anything else is treated as 'dev'
 
 export const SESSION_SECRET = process.env["SESSION_SECRET"];
-
 if (!SESSION_SECRET) {
     logger.error("No client secret. Set SESSION_SECRET environment variable.");
     process.exit(1);
 }
 
 export const MAILGUN_DOMAIN = process.env["MAILGUN_DOMAIN"];
-export const MAILGUN_APIKEY = process.env["MAILGUN_APIKEY"];
-
 if (!MAILGUN_DOMAIN) {
     logger.error("No Mailgun Domain. Set MAILGUN_DOMAIN environment variable.");
     process.exit(1);
 }
 
+export const MAILGUN_APIKEY = process.env["MAILGUN_APIKEY"];
 if (!MAILGUN_APIKEY) {
     logger.error("No Mailgun API Key. Set MAILGUN_APIKEY environment variable.");
+    process.exit(1);
+}
+
+export const MAILGUN_FROM_ADDRESS = process.env["MAILGUN_FROM_ADDRESS"];
+if (!MAILGUN_FROM_ADDRESS) {
+    logger.error("No Mailgun Email From Address. Set MAILGUN_FROM_ADDRESS environment variable.");
+    process.exit(1);
+}
+
+export const S3_BUCKET_NAME = process.env["S3_BUCKET_NAME"];
+if (!S3_BUCKET_NAME) {
+    logger.error("No S3 Bucket Name. Set S3_BUCKET_NAME environment variable.");
     process.exit(1);
 }

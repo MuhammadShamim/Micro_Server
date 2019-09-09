@@ -11,6 +11,7 @@ import { SESSION_SECRET } from "./util/secrets";
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
 import * as contactController from "./controllers/contact";
+import * as emailController from "./controllers/email";
 
 // Create Express server
 const app = express();
@@ -39,10 +40,19 @@ app.use(
 );
 
 /**
- * Primary app routes.
+ * Application routes.
  */
+// Home
 app.get("/", homeController.index);
+// Contact
 app.get("/contact", contactController.getContact);
 app.post("/contact", contactController.postContact);
+// Email
+app.get("/email", emailController.getEmail);
+/**
+ * REST API routes.
+ */
+// Email
+app.post("/email", emailController.postEmail);
 
 export default app;
